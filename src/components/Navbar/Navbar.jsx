@@ -39,8 +39,8 @@ const MyNavbar = ({ cartCount, handleOrderPopup }) => {
         <Navbar.Collapse id="eshop-navbar">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#shop">Shop</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#products">Shop</Nav.Link>
+            <Nav.Link href="#services">Services</Nav.Link>
             <Nav.Link href="#blogs">Blogs</Nav.Link>
 
             <NavDropdown
