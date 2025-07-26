@@ -451,3 +451,160 @@ backdrop-filter: blur(10px);         /* Standard version next */
   transform: perspective(300px) translateZ(10px) scale(1.2);
   text-shadow: 0 0 12px #00e0ff;
 }
+/* === GLOBAL DARK MODE === */
+body.dark {
+  background-color: #121212 !important;
+  color: #332a2a !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* NAVBAR + FOOTER */
+body.dark .navbar,
+body.dark footer,
+body.dark .footer {
+  background-color: #1f1f1f !important;
+  color: #f1f1f1 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* NAVBAR LINKS */
+body.dark .navbar .nav-link {
+  color: #f0f0f0 !important;
+}
+body.dark .navbar .nav-link:hover {
+  color: #ff5e14 !important;
+}
+
+/* CARDS + BLOGS + CATEGORIES + PRODUCTS */
+body.dark .card,
+body.dark .blog-card,
+body.dark .category-card,
+body.dark .product-card,
+body.dark .modal-content {
+  background: #1f1f1f !important;
+  color: #e0e0e0 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .card-img-top,
+body.dark .product-img,
+body.dark .category-img {
+  background: #2a2a2a !important;
+  border-bottom: 1px solid #333 !important;
+}
+
+body.dark .card-title,
+body.dark .product-title,
+body.dark .blog-title {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+body.dark .card-text,
+body.dark .service-item p,
+body.dark .product-desc,
+body.dark .blog-snippet,
+body.dark .text-muted {
+  color: #0583e4 !important;
+}
+
+/* HERO SECTION */
+body.dark #hero {
+  background: #1e1e1e !important;
+}
+body.dark #hero h1,
+body.dark #hero h2,
+body.dark #hero h3 {
+  color: #ffffff !important;
+}
+body.dark #hero p {
+  color: #ccc !important;
+}
+
+/* HEADINGS */
+body.dark h1,
+body.dark h4 {
+  color: #ffffff !important;
+}
+
+/* BUTTONS */
+body.dark .btn,
+body.dark .btn-primary,
+body.dark .btn-outline-primary {
+  color: #ffffff;
+  background-color: #ff5e14;
+  border-color: #ff5e14;
+}
+body.dark .btn:hover,
+body.dark .btn-primary:hover {
+  background-color: #e65512;
+  border-color: #e65512;
+}
+body.dark .btn-outline-primary {
+  background-color: transparent;
+  color: #ff5e14;
+}
+body.dark .btn-outline-primary:hover {
+  background-color: #ff5e14;
+  color: #fff;
+}
+
+/* MODALS */
+body.dark .modal-content {
+  background: #1e1e1e !important;
+  color: #f0f0f0 !important;
+}
+body.dark .modal-header,
+body.dark .modal-footer {
+  border-color: #333 !important;
+}
+
+/* FOOTER EFFECT */
+body.dark .footer-glass {
+  background: rgba(18, 18, 18, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -8px 30px rgba(0, 255, 255, 0.08);
+}
+
+/* LINKS */
+body.dark a {
+  color: #00bfff;
+}
+body.dark a:hover {
+  color: #66d9ff;
+  text-decoration: underline;
+}
+
+/* FORM ELEMENTS */
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #333 !important;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #888 !important;
+}
+
+/* === LIGHT OVERRIDE FOR SPECIFIC SECTIONS === */
+body.dark .no-dark,
+body.dark .no-dark * {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+body.dark .no-dark a {
+  color: #0d6efd !important;
+}
+body.dark .no-dark h1,
+body.dark .no-dark h2,
+body.dark .no-dark h3,
+body.dark .no-dark h4,
+body.dark .no-dark h5,
+body.dark .no-dark h6 {
+  color: #000000 !important;
+}
