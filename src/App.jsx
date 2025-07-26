@@ -64,6 +64,7 @@ const App = () => {
   const clearCart = () => {
     setCartItems([]);
     setCartTotal(0);
+    setCartCount(0); 
   };
 
   //  Dark mode body class handler
