@@ -14,7 +14,7 @@ import headphone from "./assets/hero/headphone.png";
 import smartwatch2 from "./assets/category/smartwatch2-removebg-preview.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import DarkMode from "./components/Navbar/DarkMode"; // ✅
+import DarkMode from "./components/Navbar/DarkMode"; // 
 
 const BannerData = {
   discount: "30% OFF",
