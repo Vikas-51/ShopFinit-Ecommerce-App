@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Category from "./components/Category/Category";
@@ -14,6 +14,7 @@ import headphone from "./assets/hero/headphone.png";
 import smartwatch2 from "./assets/category/smartwatch2-removebg-preview.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import DarkMode from "./components/Navbar/DarkMode"; // ✅
 
 const BannerData = {
   discount: "30% OFF",
@@ -22,8 +23,7 @@ const BannerData = {
   image: headphone,
   title2: "Air Solo Bass",
   title3: "Winter Sale",
-  title4:
-    "🎵 Feel the bass. Hear every detail. Go wireless with confidence",
+  title4: "🎵 Feel the bass. Hear every detail. Go wireless with confidence",
   bgColor: "#f42c37",
 };
 
@@ -35,49 +35,45 @@ const BannerData2 = {
   title2: "Smart Solo",
   title3: "Winter Sale",
   title4:
-    "🌐 Your world, now at a glance-the perfect blend of style, intelligence, and functionality",
+    "🌐 Your world, now at a glance—the perfect blend of style, intelligence, and functionality",
   bgColor: "#2dcc6f",
 };
 
 const App = () => {
-  const [cartItems, setCartItems] = React.useState([]);
-  const [cartCount, setCartCount] = React.useState(0);
-  const [cartTotal, setCartTotal] = React.useState(0);
-  const [orderPopup, setOrderPopup] = React.useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
+  const [orderPopup, setOrderPopup] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
-  const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
-  };
+  const handleOrderPopup = () => setOrderPopup(!orderPopup);
 
   const handleAddToCart = (product) => {
-  const updatedCart = [...cartItems, product];
-  setCartItems(updatedCart);
-  setCartCount(updatedCart.length);
-
-  const total = updatedCart.reduce((acc, item) => {
-    const price = parseFloat(item.price.replace("$", ""));
-    return acc + price;
-  }, 0);
-
-  setCartTotal(total);
-};
-
-  // Update cart count and total when cartItems change
-  React.useEffect(() => {
-    setCartCount(cartItems.length);
-    const total = cartItems.reduce((sum, item) => {
-      const price = parseFloat(item.price.replace("$", "")) || 0;
-      return sum + price;
+    const updatedCart = [...cartItems, product];
+    setCartItems(updatedCart);
+    setCartCount(updatedCart.length);
+    const total = updatedCart.reduce((acc, item) => {
+      const price = parseFloat(item.price.replace("$", ""));
+      return acc + price;
     }, 0);
     setCartTotal(total);
-  }, [cartItems]);
+  };
 
   const clearCart = () => {
-  setCartItems([]);
-  setCartTotal(0);
-};
+    setCartItems([]);
+    setCartTotal(0);
+  };
 
-  React.useEffect(() => {
+  //  Dark mode body class handler
+ useEffect(() => {
+  document.body.classList.toggle("dark", darkMode); // sets class for global styling
+}, [darkMode]);
+
+
+  // AOS animations
+  useEffect(() => {
     AOS.init({
       duration: 800,
       easing: "ease-in-sine",
@@ -88,8 +84,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white text-dark transition overflow-hidden">
-      <Navbar cartCount={cartCount} handleOrderPopup={handleOrderPopup} />
+    <div className="app transition overflow-hidden">
+      <Navbar
+        cartCount={cartCount}
+        handleOrderPopup={handleOrderPopup}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+      <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
       <Hero handleOrderPopup={handleOrderPopup} />
       <Category />
       <Category2 />
